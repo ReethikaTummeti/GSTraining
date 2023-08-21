@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //"use strict"
+        //scopes:function, global
+        //let(block scope variable)-- for each itr, new memory is created
+        for( let i=0;i<10;i++)
+        {
+            setTimeout(function(){
+                console.log("task",i);
+            },100*i);
+        }
+
+        //const--read-scope variable
+        const a=10;
+        a=200;//throws error:Assignment to constant variable.
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // to access the current object instance : this
+        const user2 = {
+            name: "johny",
+            age: 15,
+            greeting: function () {
+                    console.log("hello from", this.name);
+            },
+        };
+        user2.greeting();
+        const user = {
+            name: "john",
+            age: 12,
+            greeting: function () {
+
+                console.log("outside the timeout this is",this);//refers to user object
+                setTimeout(function () {
+                    console.log("inside timeout this is",this);//refers to window object
+                    console.log("hello from", this.name);
+                }, 1000);
+            },
+        };
+        user.greeting();
+        user.name = "demo";
+        user.greeting();
+        const user3 = {
+            name: "john",
+            age: 12,
+            greeting: function () {
+                //lexical scoping(old method) is declaring other object pointing to the user object
+                console.log("outside the timeout this is",this);//refers to user object
+                setTimeout(()=> {
+                    console.log("inside timeout this is",this);//refers to window object
+                    console.log("hello from", this.name);
+                }, 1000);
+            },
+        };
+        user3.greeting();
+        user3.name = "demo";
+        user3.greeting();
+
+        //object accessing techniques:
+        //dot operator
+        console.log(user3.name);
+        //brancket technique
+        console.log(user3["name"]);
+    </script>
+</body>
+
+</html>
