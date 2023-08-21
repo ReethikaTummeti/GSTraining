@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <p id="test">Test 1</p>
+    <button onclick="test()">Change content</button>
+    <p id="test" class="myclass">Test 2</p>
+    <p class="myclass">Test 3</p>
+    <script>
+        function test()
+        {
+            document.getElementById('test').innerHTML="modified <b>content</b>";
+            alert("Blocked");
+        }
+        document.querySelector("p").innerHTML="Updated <b>content</b>";
+        </script>
+</body>
+</html>
