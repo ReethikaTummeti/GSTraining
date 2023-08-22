@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul></ul>
+      
+    <form>
+      <input type="text" id="todo" placeholder="enter to do:"/><br/>
+      
+      <button onclick="AddToDo()">Add</button>
+      <button onclick="UpdateToDo()">Update</button>
+      <button onclick="DeleteToDo()">Remove</button>
+    </form>
+    <script>
+      function displayData(data) {
+        const ele = document.querySelector("ul");
+        console.log(ele);
+        ele.innerHTML = "";
+        for (let emp of data) {
+          ele.innerHTML += "<li>" + emp + "</li>";
+        }
+      }
+      var list=[];
+      function AddToDo() {
+
+        event.preventDefault();
+        console.log("adding");
+        const temp=document.querySelector('#todo')
+        const data=temp.value;
+        console.log(data);
+        list.push(data);
+        console.log(list);
+        displayData(list);
+      }
+      function UpdateToDo() {
+        console.log("Updated");
+      }
+      function DeleteToDo() {
+        list.forEach(element => {
+        event.preventDefault();
+        console.log("deleting");
+        const temp=document.querySelector('#todo')
+        const data=temp.value;
+        console.log(data);
+        list.pop(data);
+        console.log(list);
+        displayData(list);
+        });
+        console.log("Deleted");
+      }
+    </script>
+  </body>
+</html>
